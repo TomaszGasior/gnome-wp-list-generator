@@ -23,8 +23,8 @@ class GwlgApplication
 
     private function helpAction(): void
     {
-?>
-Gnome Wallpaper List Generator
+        echo <<< HELP_TEXT
+GNOME Wallpaper List Generator
 
 This script generates XML file for gnome-control-center's background panel
 with your own wallpapers and saves it in proper user-wide or system-wide directory.
@@ -38,19 +38,19 @@ Optional options:
 
     --directory
         Path to directory with your wallpapers. Defaults to this path:
-        "<?php echo $this->getDefaultWallpapersDirectory(false) ?>"
+        "{$this->getDefaultWallpapersDirectory(false)}"
         or to this path if --system is specified:
-        "<?php echo $this->getDefaultWallpapersDirectory(true) ?>".
+        "{$this->getDefaultWallpapersDirectory(true)}".
 
     --name
         Name of XML file for gnome-control-center.
-        Defaults to "<?php echo $this->getDefaultGccFile() ?>".
+        Defaults to "{$this->getDefaultGccFile()}".
         XML file will be saved automatically in this directory:
-        "<?php echo $this->getGccDirectory(false) ?>"
+        "{$this->getGccDirectory(false)}"
         or in this directory if --system is specified:
-        "<?php echo $this->getGccDirectory(true) ?>".
+        "{$this->getGccDirectory(true)}".
 
-<?php
+HELP_TEXT;
     }
 
     private function workAction($wallpapersDirectory = null, $xmlFileName = null, $systemWide = false): void

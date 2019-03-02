@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Implenetation of enumeration inspired on SplEnum.
+ * Implementation of enumeration inspired on SplEnum.
  */
 class EnumClass
 {

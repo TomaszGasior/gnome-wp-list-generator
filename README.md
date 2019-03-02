@@ -7,6 +7,7 @@ TODO
 ---
 
 - Ability to set wallpaper mode (zoom, centered, scaled, etc.).
-- Optional recursive searching over specified directory.
+- Optional (not default) recursive searching over specified directory.
 - Automatically calculated fallback solid color for each wallpaper.
+- Support for timed backgrounds.
 - Unit tests.
