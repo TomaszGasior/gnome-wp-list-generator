@@ -1,0 +1,7 @@
+[package]
+name = "gnome-wp-list-generator"
+version = "0.1.0"
+authors = ["Tomasz Gąsior <tomaszgasior.pl>"]
+edition = "2018"
+
+[dependencies]
