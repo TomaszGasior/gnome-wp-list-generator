@@ -5,3 +5,5 @@ authors = ["Tomasz Gąsior <tomaszgasior.pl>"]
 edition = "2018"
 
 [dependencies]
+tree_magic = "0.2.1"
+walkdir = "2"
