@@ -20,7 +20,7 @@ impl ImageCollection {
             "image/png",
         ];
 
-        let mut instance = ImageCollection{images: Vec::new()};
+        let mut instance = Self{images: Vec::new()};
 
         let directory = match recursive {
             true => WalkDir::new(directory),
@@ -37,6 +37,8 @@ impl ImageCollection {
                 instance.images.push(file_path);
             }
         }
+
+        instance.images.sort();
 
         instance
     }
