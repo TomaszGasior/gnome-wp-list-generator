@@ -30,7 +30,10 @@ impl ImageCollection {
         let directory = directory.into_iter();
 
         for file in directory {
-            let file = file.unwrap();
+            let file = match file {
+                Ok(file) => file,
+                Err(_) => { continue; }
+            };
             let mime_type = tree_magic::from_filepath(file.path());
 
             if supported_mime_types.contains(&mime_type.as_str()) {

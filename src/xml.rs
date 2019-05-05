@@ -6,6 +6,7 @@ use std::io::prelude::*;
 use treexml::{Document, Element, ElementBuilder};
 
 #[derive(Debug)]
+#[allow(unused)]
 pub enum WallpaperOption {
     Wallpaper,
     Centered,
@@ -39,11 +40,11 @@ impl GccXmlFile {
         let directory = xml_file_path.parent().unwrap();
         if !directory.exists() {
             let directory = directory.to_str().unwrap().to_string();
-            fs::create_dir_all(directory);
+            fs::create_dir_all(directory).expect("Failed to save XML file");
         }
 
-        let mut xml_file = File::create(xml_file_path).unwrap();
-        xml_file.write_all(document.to_string().as_bytes());
+        let mut xml_file = File::create(xml_file_path).expect("Failed to save XML file");
+        xml_file.write_all(document.to_string().as_bytes()).expect("Failed to save XML file");
     }
 
     fn prepare_document(&self) -> Document {
@@ -55,7 +56,6 @@ impl GccXmlFile {
                     .attr("deleted", "false")
                     .children(vec![
                         ElementBuilder::new("name")
-                            // TODO: can I do it better?
                             .text(Path::new(image_path).file_name().unwrap().to_str().unwrap()),
                         ElementBuilder::new("filename")
                             .text(image_path),
