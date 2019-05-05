@@ -1,3 +1,4 @@
+use std::path::Path;
 use std::slice::Iter;
 use walkdir::WalkDir;
 
@@ -7,7 +8,7 @@ pub struct ImageCollection {
 }
 
 impl ImageCollection {
-    pub fn new(directory: &str, recursive: bool) -> Self {
+    pub fn new(directory: &Path, recursive: bool) -> Self {
         // TODO: change to constant
         // Taken from https://gitlab.gnome.org/GNOME/gnome-control-center/blob/2b95f957/panels/background/bg-pictures-source.c#L58
         let supported_mime_types = [

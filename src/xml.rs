@@ -33,12 +33,10 @@ impl GccXmlFile {
         instance
     }
 
-    pub fn generate(&self, xml_file_path: &str) {
+    pub fn generate(&self, xml_file_path: &Path) {
         let document = self.prepare_document();
 
-        let xml_file_path = Path::new(xml_file_path);
         let directory = xml_file_path.parent().unwrap();
-
         if !directory.exists() {
             let directory = directory.to_str().unwrap().to_string();
             fs::create_dir_all(directory);
